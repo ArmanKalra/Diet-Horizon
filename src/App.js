@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import UserDashboard from './pages/UserDashboard';
 import TrainerDashboard from './pages/TrainerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import UserList from './pages/UserList'; // Import UserList component
 import ProtectedRoute from './routes/ProtectedRoute';
 import Navbar from './components/Navbar';
 import BMICalculator from './pages/BMICalculator';
@@ -60,6 +61,7 @@ function AppWrapper() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/trainer"
           element={
@@ -68,11 +70,21 @@ function AppWrapper() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/admin"
           element={
             <ProtectedRoute roles={["admin"]}>
               <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <UserList />
             </ProtectedRoute>
           }
         />
